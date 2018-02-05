@@ -1,48 +1,46 @@
 package account_test
 
 import (
-    "os"
-    "testing"
-    "github.com/pdepip/go-binance/binance"
+	"os"
+	"testing"
+
+	"github.com/pdepip/go-binance/binance"
 )
 
-
 func TestGetTrades(t *testing.T) {
-    client := binance.New(os.Getenv("BINANCE_KEY"), os.Getenv("BINANCE_SECRET"))
+	client := binance.New(os.Getenv("BINANCE_KEY"), os.Getenv("BINANCE_SECRET"))
 
-    trades, err := client.GetTrades("BNBETH")
+	trades, err := client.GetTrades("BNBETH")
 
-    if err != nil {
-        t.Fatal(err)
-    }
+	if err != nil {
+		t.Fatal(err)
+	}
 
-    t.Logf("%+v\n", trades)
+	t.Logf("%+v\n", trades)
 }
-
 
 func TestGetWithdraws(t *testing.T) {
-    client := binance.New(os.Getenv("BINANCE_KEY"), os.Getenv("BINANCE_SECRET"))
+	client := binance.New(os.Getenv("BINANCE_KEY"), os.Getenv("BINANCE_SECRET"))
 
-    withdraws, err := client.GetWithdrawHistory()
+	withdraws, err := client.GetWithdrawHistory()
 
-    if err != nil {
-        t.Fatal(err)
-    }
+	if err != nil {
+		t.Fatal(err)
+	}
 
-    t.Logf("%+v\n", withdraws)
+	t.Logf("%+v\n", withdraws)
 }
 
-
 func TestGetDeposits(t *testing.T) {
-    client := binance.New(os.Getenv("BINANCE_KEY"), os.Getenv("BINANCE_SECRET"))
+	client := binance.New(os.Getenv("BINANCE_KEY"), os.Getenv("BINANCE_SECRET"))
 
-    deposits, err := client.GetDepositHistory()
+	deposits, err := client.GetDepositHistory()
 
-    if err != nil {
-        t.Fatal(err)
-    }
+	if err != nil {
+		t.Fatal(err)
+	}
 
-    t.Logf("%+v\n", deposits)
+	t.Logf("%+v\n", deposits)
 }
 
 /*
@@ -77,7 +75,7 @@ func TestLimitOrder(t *testing.T) {
 
     client := binance.New(os.Getenv("BINANCE_KEY"), os.Getenv("BINANCE_SECRET"))
     res, err := client.PlaceLimitOrder(order)
-    
+
     if err != nil {
         t.Fatal(err)
     }
@@ -99,7 +97,7 @@ func TestMarketOrder(t *testing.T) {
 
     client := binance.New(os.Getenv("BINANCE_KEY"), os.Getenv("BINANCE_SECRET"))
     res, err := client.PlaceMarketOrder(order)
-    
+
     if err != nil {
         t.Fatal(err)
     }
