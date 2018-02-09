@@ -121,3 +121,15 @@ func (b *Binance) GetExchangeInfo() (exchangeinfo ExchangeInfo, err error) {
 
 	return
 }
+
+// GetSystemStatus retrieves web API status of the exchange.
+// See: https://github.com/binance-exchange/binance-official-api-docs/blob/master/wapi-api.md
+func (b *Binance) GetSystemStatus() (systemStatus SystemStatus, err error) {
+
+	_, err = b.client.do("GET", "wapi/v3/systemStatus.html", "", false, &systemStatus)
+	if err != nil {
+		return
+	}
+
+	return
+}

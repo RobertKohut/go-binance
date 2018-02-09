@@ -148,6 +148,11 @@ type RateLimit struct {
 	RateLimitType string `json:"rateLimitType"`
 }
 
+type SystemStatus struct {
+	Status  int    `json:"status"`
+	Message string `json:"msg"`
+}
+
 // UnmarshalJSON Custom Unmarshal function to handle response data format
 func (k *Kline) UnmarshalJSON(b []byte) error {
 	var s [11]interface{}
