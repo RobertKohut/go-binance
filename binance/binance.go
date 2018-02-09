@@ -15,7 +15,7 @@ package binance
 
 const (
 	// BaseURL for binance
-	BaseURL = "https://www.binance.com"
+	BaseURL = "https://api.binance.com"
 )
 
 // Binance stores the Binance Client
